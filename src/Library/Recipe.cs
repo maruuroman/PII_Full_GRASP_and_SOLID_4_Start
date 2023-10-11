@@ -15,11 +15,9 @@ namespace Full_GRASP_And_SOLID
 
         public Product FinalProduct { get; set; }
 
-         public void AddStep(string productDescription, double quantity, string equipmentDescription, int time)
+         public void AddStep(Product input, double quantity, Equipment equipment,  int time)
         {
-            Product product = GetProduct(productDescription);
-            Equipment equipment = GetEquipment(equipmentDescription);
-            Step step = new Step(product, quantity, equipment, time);
+            Step step = new Step(input, quantity, equipment, time);
             steps.Add(step);
         }
 
