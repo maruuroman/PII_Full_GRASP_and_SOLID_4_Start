@@ -1,4 +1,4 @@
-﻿//-------------------------------------------------------------------------
+﻿﻿//-------------------------------------------------------------------------
 // <copyright file="Program.cs" company="Universidad Católica del Uruguay">
 // Copyright (c) Programación II. Derechos reservados.
 // </copyright>
@@ -70,8 +70,8 @@ namespace Full_GRASP_And_SOLID
 
         private static Equipment GetEquipment(string description)
         {
-            var query = from Equipment equipment in equipmentCatalog where equipment.Description == description select equipment;
-            return query.FirstOrDefault();
+            var equipment = equipmentCatalog.FirstOrDefault(equipment => equipment.Description == description);
+            return equipment;
         }
     }
 }

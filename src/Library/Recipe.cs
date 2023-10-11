@@ -15,14 +15,18 @@ namespace Full_GRASP_And_SOLID
 
         public Product FinalProduct { get; set; }
 
-        public void AddStep(Step step)
+         public void AddStep(string productDescription, double quantity, string equipmentDescription, int time)
         {
-            this.steps.Add(step);
+            Product product = GetProduct(productDescription);
+            Equipment equipment = GetEquipment(equipmentDescription);
+            Step step = new Step(product, quantity, equipment, time);
+            steps.Add(step);
         }
+
 
         public void RemoveStep(Step step)
         {
-            this.steps.Remove(step);
+            steps.Remove(step);
         }
 
         // Agregado por SRP
@@ -40,6 +44,7 @@ namespace Full_GRASP_And_SOLID
             return result;
         }
 
+
         // Agregado por Expert
         public double GetProductionCost()
         {
@@ -54,3 +59,4 @@ namespace Full_GRASP_And_SOLID
         }
     }
 }
+
